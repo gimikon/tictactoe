@@ -1,0 +1,32 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+#background {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100vw;
+	z-index: -1;
+}
+
+body {
+	background-color: #fde3ff;
+}
+
+.game-box {
+  width: 202px;
+  height: 202px;
+  display: flex;
+  flex-wrap: wrap;
+  border: solid 2px #333;
+}
+
+.box {
+  position: relative;
+  width: calc(198px / 3);
+  height: calc(198px / 3);
+  border: solid 1px #333;
+}
