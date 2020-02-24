@@ -9,11 +9,11 @@
 	left: 0;
 	top: 0;
 	width: 100vw;
-	z-index: -1;
+	z-index: -2;
 }
 
 body {
-	background-color: #fde3ff;
+	background-color: pink;
 }
 
 .game-box {
@@ -21,12 +21,26 @@ body {
   height: 202px;
   display: flex;
   flex-wrap: wrap;
-  border: solid 2px #333;
+  /* border: solid 2px #333; */
+	margin: 0 auto;
 }
 
 .box {
   position: relative;
   width: calc(198px / 3);
   height: calc(198px / 3);
-  border: solid 1px #333;
+
+}
+
+.message {
+	text-align: center;
+}
+
+.reset {
+	text-align:center;
+	padding-top: 30px;
+}
+
+#turn {
+	margin: 30px;
 }
