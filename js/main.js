@@ -45,68 +45,106 @@ $(document).ready(function() {
 ///Game start////
 // 1 . if turn button is clicked, it will tell you who should play
 // 2.  randomly choose who should play first ex.. you or me ?
-// 3.  game starts
-// 4.
+// 3.  game starts start clicking the button every time player1 you click the button, img pops up
+// 4. and next turn will start, everytime second player clicks, the img pops up
 
   $("#turn").click(function() {
-    if (reset !== true){
-        decidePlayer();
         if (currentPlayer) {
           $("#turn").text("It is your turn");
-          gamePlay();
-        } else {
-          $("#turn").text("It is my turn");
-          gamePlay();
-        }
-  } else {
-        decidePlayer();
-        if (currentPlayer) {
-          $("#turn").text("It is your turn");
-          gamePlay();
-        } else {
-          $("#turn").text("It is my turn");
-          gamePlay();
 
-      }
-    }
-  });
-
-
-  const gamePlay = function() {
-    for (let i = 0; i < array.length; i++) {
-      const button = $(`#${i}`);
-      button.click(function() {
-      console.log("click" + i);
-
-        //checking if valid play
-        if (array[i] === "") {
-
-          //what marker will be displayed
-          if (currentPlayer === true) {
-            button.html('<img src="imges/macaron-red.png">');
-            array[i] = "x";
-            $("#turn").text("It is my trun");
-            checkWinner();
-
-          } else {
-            button.html('<img src="imges/macaron-green.png">');
-            array[i] = "o";
-            $("#turn").text("It is your trun");
-            checkWinner();
+          $('.box').on('click', function () {
+            const i = this.id;
+            if (array[i] === ""){
+              if (currentPlayer === true){
+                $(`#${i}`).html('<img src="imges/macaron-red.png">');
+                array[i] = "x";
+                $("#turn").text("It is my trun");
+                checkWinner();
+              } else {
+                $(`#${i}`).html('<img src="imges/macaron-green.png">');
+                array[i] = "o";
+                $("#turn").text("It is your trun");
+                checkWinner();
+              }
+              currentPlayer = !currentPlayer
             }
-            currentPlayer = !currentPlayer
-          }
-        })
-      }
-    };
-
-  $("#reset").click(function() {
-    reset = true;
-    const button = $(".box");
-    button.html("");
-    $("#turn").text("♡Let's start♡");
-    
+          })
+        }
 
     });
+
+  //       } else {
+  //         $("#turn").text("It is my turn");
+  //         gamePlay();
+  //       }
+  // } else {
+  //       decidePlayer();
+  //       if (currentPlayer) {
+  //         $("#turn").text("It is your turn");
+  //         gamePlay();
+  //       } else {
+  //         $("#turn").text("It is my turn");
+  //         gamePlay();
+  //
+  //     }
+  //   }
+  // });
+
+
+  // $('.box').on('click', function () {
+  //   const i = this.id;
+  //   if (array[i] === ""){
+  //     if (currentPlayer === true){
+  //       i.html('<img src="imges/macaron-red.png">');
+  //       array[i] = "x";
+  //       $("#turn").text("It is my trun");
+  //       checkWinner();
+  //     } else {
+  //       i.html('<img src="imges/macaron-green.png">');
+  //       array[i] = "o";
+  //       $("#turn").text("It is your trun");
+  //       checkWinner();
+  //     }
+  //     currentPlayer = !currentPlayer
+  //   }
+  // });
+  //
+  // const gamePlay = function() {
+  //   for (let i = 0; i < array.length; i++) {
+  //     const button = $(`#${i}`);
+  //     button.click(function() {
+  //     console.log("click" + i);
+  //
+  //       //checking if valid play
+  //       if (array[i] === "") {
+  //
+  //         //what marker will be displayed
+  //         if (currentPlayer === true) {
+  //           button.html('<img src="imges/macaron-red.png">');
+  //           array[i] = "x";
+  //           $("#turn").text("It is my trun");
+  //           checkWinner();
+  //
+  //         } else {
+  //           button.html('<img src="imges/macaron-green.png">');
+  //           array[i] = "o";
+  //           $("#turn").text("It is your trun");
+  //           checkWinner();
+  //           }
+  //           currentPlayer = !currentPlayer
+  //         }
+  //       })
+  //     }
+  //   };
+
+
+  // $("#reset").click(function() {
+  //   reset = true;
+  //   const button = $(".box");
+  //   button.html("");
+  //   $("#turn").text("♡Let's start♡");
+  //
+  //
+  //   });
 
 });
