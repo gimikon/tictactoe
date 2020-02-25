@@ -1,9 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC|Concert+One|Indie+Flower|Righteous|Tomorrow&display=swap');
+
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	font-family: 'Indie Flower';
+	/* font-family: 'Tomorrow', ; */
+	/* font-family: 'Righteous', ; */
+	/* font-family: 'Amatic SC', ; */
+	/* font-family: 'Concert One', ; */
 }
-
 #background {
 	position: absolute;
 	left: 0;
@@ -13,7 +19,18 @@
 }
 
 body {
-	background-color: pink;
+	background-color: #F4B9B8;
+}
+
+.container {
+	position: relative;
+}
+
+#cloud {
+	position: absolute;
+	top: calc(50% - 107px);
+	left: calc(50% - 210px);
+	width:1%;
 }
 
 .game-box {
@@ -29,18 +46,40 @@ body {
   position: relative;
   width: calc(198px / 3);
   height: calc(198px / 3);
-
 }
 
 .message {
 	text-align: center;
 }
 
-.reset {
+.message h1 {
+	font-size: 64px;
+	color:#ffb347;
+}
+
+.bottom-message {
 	text-align:center;
 	padding-top: 30px;
+
+}
+
+.bottom-message button {
+	background-color: #fdfd96;
+	margin:0 auto;
 }
 
 #turn {
 	margin: 30px;
+	background-color: pink;
 }
+
+#choose {
+	display:block;
+	margin-top:20px;
+}
+
+/* .x {
+	background: url("../imges/macaron-red.png");
+	background-size: cover;
+	background-position: center;
+} */

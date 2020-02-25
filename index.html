@@ -3,13 +3,13 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/light.min.css">
 
 		<link rel="stylesheet" href="css/style.css" />
 		<title>Tic Tac Toe</title>
 
 		<script src="js/jquery.min.js"></script>
 		<script src="js/main.js"></script>
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/light.min.css">
 
 
 	</head>
@@ -18,6 +18,7 @@
 
 <!-- the whole thing -->
 <div class="container">
+	<img src="imges/cloud1.png"  id="cloud" alt="">
 
 <!-- game itselt -->
 <div class="game">
@@ -27,7 +28,7 @@
 			<h1>Tic Tac Toe</h1>
 			<button id="turn">♡Let's start♡</button>
 
-		
+
 		</div>
 
 <!-- tic tac toe box square box -->
@@ -48,8 +49,9 @@
 
 
 <!-- reset button -->
-	<div class="reset">
-		<button>Reset</button>
+	<div class="bottom-message">
+		<button id="reset">Reset</button>
+		<button id="choose">Choose your macaron♡</button>
 	</div>
 
 </div>
