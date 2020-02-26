@@ -2,25 +2,19 @@ let array = ["", "", "", "", "", "", "", "", ""];
 let currentPlayer = true;
 let gameOver = false;
 let isGameReset = false;
+let choiceOfChange1;
 
-const red = '<img src="imges/macaron-red.png">'
-const green = '<img src="imges/macaron-red.png">'
-const purple = '<img src="imges/macaron-purple.png">'
-const yellow = '<img src="imges/macaron-yellow.png">'
+let color = {
 
-const x = red
-const y = green
-const z = purple
-const a = yellow
+ red: '<img src="imges/macaron-red.png">',
+ green: '<img src="imges/macaron-green.png">',
+ yellow: '<img src="imges/macaron-yellow.png">',
+ purple: '<img src="imges/macaron-purple.png">',
+};
 
+
+let choiceOfChange2 = color.red
 $(document).ready(function() {
-  // const decidePlayer = function() {
-  //   if (Math.random() > 0.5) {
-  //     currentPlayer = true;
-  //   } else {
-  //     currentPlayer = false;
-  //   }
-  // };
 
   const winningConditions = [
     [0, 1, 2],
@@ -55,15 +49,6 @@ $(document).ready(function() {
     }
   };
 
-  ///Game start////
-  // 1 . if turn button is clicked, it will tell you who should play
-  // 2.  randomly choose who should play first ex.. you or me ?
-  // 3.  game starts start clicking the button every time player1 you click the button, img pops up
-  // 4. and next turn will start, everytime second player clicks, the img pops up
-
-
-
-
 
   const disenabled = function(){
     if ( !gameOver && !isGameReset ){
@@ -75,9 +60,10 @@ $(document).ready(function() {
 
 
   $("#turn").click(function() {
+    if ( choiceOfChange1 === undefined ){
+      return;
+    }
     $("#turn").text("It is your turn");
-
-    console.log({ isGameReset, gameOver });
     isGameReset = false;
     disenabled();
     $("#turn").text("It is your turn");
@@ -86,11 +72,11 @@ $(document).ready(function() {
         const i = this.id;
         if (array[i] === "") {
           if (currentPlayer === true) {
-            $(`#${i}`).html(x);
+            $(`#${i}`).html(choiceOfChange1);
             array[i] = "x";
             $("#turn").text("It is my trun");
           } else {
-            $(`#${i}`).html('<img src="imges/macaron-green.png">');
+            $(`#${i}`).html(choiceOfChange2);
             array[i] = "o";
             $("#turn").text("It is your trun");
           }
@@ -114,6 +100,10 @@ $(document).ready(function() {
   });
 
 
+$(".choice").on('click', function(){
+  let colorChoice = $(this).attr('id')
+  choiceOfChange1 = color[colorChoice]
+})
 
 
 

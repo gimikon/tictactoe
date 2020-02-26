@@ -35,8 +35,9 @@ body {
 
 .game {
 	border:3px yellow dotted;
-	padding-bottom: 30px;
+	padding-bottom: 53px;
 	border-radius: 20px;
+
 }
 
 .bottom-message {
@@ -84,7 +85,7 @@ body {
 }
 
 .bottom-message button {
-	background-color: #fdfd96;
+	background-color: #ffb347;
 	margin:0 auto;
 }
 
@@ -102,7 +103,30 @@ body {
 	text-align: center;
 	padding-top:20px;
 
+
 }
+
+#red {
+	background-color: #ff6961;
+}
+
+#green {
+	background-color: #77dd77;
+}
+
+#yellow {
+	background-color: #fdfd96;
+}
+
+#purple {
+	background-color: #b19cd9;
+}
+
+.select p {
+	margin-bottom:20px;
+}
+
+
 
 
 
