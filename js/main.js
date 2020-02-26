@@ -1,8 +1,10 @@
+////the initial setting ///////////
 let array = ["", "", "", "", "", "", "", "", ""];
 let currentPlayer = true;
 let gameOver = false;
 let isGameReset = false;
 let choiceOfChange1;
+let colorButtonSet = false;
 
 let color = {
   red: '<img src="imges/macaron-red.png">',
@@ -32,6 +34,10 @@ $(document).ready(function() {
     [2, 5, 8]
   ];
 
+
+  ////the initial setting ///////////
+
+///////check if the winning conditions are met or the game is draw//////////
   const checkWinner = function() {
     for (let i = 0; i < winningConditions.length; i++) {
       const current = array[winningConditions[i][0]];
@@ -39,9 +45,7 @@ $(document).ready(function() {
         if (current === array[winningConditions[i][1]]) {
           if (current === array[winningConditions[i][2]]) {
             gameOver = true;
-            // isGameReset = false;
 
-            // $(
             $("#turn").text("You are winner !!");
             $(".box")
               .delay(800)
@@ -62,6 +66,11 @@ $(document).ready(function() {
     }
   };
 
+  ///////check if the winning conditions are met or the game is draw//////////
+
+
+
+/////lets start button will be disenabled /////////
   const disenabled = function() {
     if (!gameOver && !isGameReset) {
       $("#turn").prop("disabled", true);
@@ -70,10 +79,17 @@ $(document).ready(function() {
     }
   };
 
+  //////lets start button will be disenabled /////////
+
+
+
+//////the game starts//////////////////////////
+  /////decide if the button color is pressed///////
   $("#turn").click(function() {
-    if (choiceOfChange1 === undefined) {
+    if (!colorButtonSet) {
       return;
     }
+  ////if the button color is pressed, the game starts from here ////////////
 
     $("#turn").text("It is your turn");
 
@@ -103,7 +119,14 @@ $(document).ready(function() {
     });
   });
 
+  //////the game play/////////////////////
+
+
+
+  ////the reset button ///////////////////
+
   $("#reset").click(function() {
+    colorButtonSet = false;
     currentPlayer = true;
     isGameReset = true;
     gameOver = false;
@@ -116,15 +139,15 @@ $(document).ready(function() {
   });
 
   $(".choice").on("click", function() {
+    colorButtonSet = true;
     let colorChoice = $(this).attr("id");
     choiceOfChange1 = color[colorChoice];
     choiceOfBackground = buttonColor[colorChoice];
     $("#turn").css("background-color", choiceOfBackground);
   });
 
-  // const chooseYourColor = function(){
-  //   if ( Math.random() > 0.5){
-  //     let color
-  //   }
-  // }
+
+    ////the reset button ///////////////////
+
+
 });
