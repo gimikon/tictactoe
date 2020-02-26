@@ -5,18 +5,9 @@
 	padding: 0;
 	box-sizing: border-box;
 	font-family: 'Indie Flower';
-	/* font-family: 'Tomorrow', ; */
-	/* font-family: 'Righteous', ; */
-	/* font-family: 'Amatic SC', ; */
-	/* font-family: 'Concert One', ; */
+
 }
-/* #background {
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100vw;
-	z-index: -2;
-} */
+
 
 body {
 	background-color: #F4B9B8;
@@ -72,10 +63,11 @@ body {
 	text-align: center;
 }
 
-.message h2 {
-	font-size: 50px;
-	color:#779ecb;
 
+
+.swing {
+	animation-duration: 2s;
+  animation-delay: 0.5s;
 }
 
 .bottom-message {
@@ -125,13 +117,3 @@ body {
 .select p {
 	margin-bottom:20px;
 }
-
-
-
-
-
-/* .x {
-	background: url("../imges/macaron-red.png");
-	background-size: cover;
-	background-position: center;
-} */

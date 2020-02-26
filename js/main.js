@@ -10,10 +10,18 @@ let color = {
  green: '<img src="imges/macaron-green.png">',
  yellow: '<img src="imges/macaron-yellow.png">',
  purple: '<img src="imges/macaron-purple.png">',
+ pink:'<img src="imges/macaron-pink.png">'
 };
 
+let buttonColor = {
+  purple:"#b19cd9",
+  yellow:"#fdfd96",
+  green:"#77dd77",
+  red:"#ff6961",
+  pink:"pink"
 
-let choiceOfChange2 = color.red
+};
+
 $(document).ready(function() {
 
   const winningConditions = [
@@ -34,9 +42,11 @@ $(document).ready(function() {
         if (current === array[winningConditions[i][1]]) {
           if (current === array[winningConditions[i][2]]) {
             gameOver = true;
-            isGameReset = false;
-            $(".box").html('<img src ="imges/cloud1.png">')
-            $("#turn").text("I win !!");
+            // isGameReset = false;
+
+            // $(".box").html('<img src ="imges/cloud1.png">')
+            $("#turn").text("You are winner !!");
+            $(".box").addClass("swing");
             console.log("I win");
           }
         }
@@ -44,7 +54,9 @@ $(document).ready(function() {
     }
     if (!array.includes("")) {
       $("#turn").text("The game is draw");
-      $(".box").html('<img src ="imges/cloud1.png">')
+      $("#turn").css("background-color","#aec6cf")
+
+      // $(".box").html('<img src ="imges/cloud1.png">')
       console.log("draw");
     }
   };
@@ -62,23 +74,32 @@ $(document).ready(function() {
   $("#turn").click(function() {
     if ( choiceOfChange1 === undefined ){
       return;
-    }
+    };
+
     $("#turn").text("It is your turn");
+
     isGameReset = false;
     disenabled();
-    $("#turn").text("It is your turn");
+
+
     $(".box").on("click", function() {
+
       if (!gameOver && !isGameReset) {
         const i = this.id;
         if (array[i] === "") {
           if (currentPlayer === true) {
             $(`#${i}`).html(choiceOfChange1);
             array[i] = "x";
-            $("#turn").text("It is my trun");
+            $("#turn").text("It is your turn");
+            $("#turn").css("background-color",choiceOfBackground)
+
           } else {
-            $(`#${i}`).html(choiceOfChange2);
+            $(`#${i}`).html(color.pink);
+            $("#turn").css("background-color",buttonColor.pink)
+
+
             array[i] = "o";
-            $("#turn").text("It is your trun");
+            $("#turn").text("It is my trun");
           }
           checkWinner();
           currentPlayer = !currentPlayer;
@@ -88,12 +109,13 @@ $(document).ready(function() {
   });
 
   $("#reset").click(function() {
-
+    currentPlayer = true;
     isGameReset = true;
     gameOver = false;
     const button = $(".box");
     button.html("");
     $("#turn").text("♡Let's start♡");
+    $("#turn").css("background-color","pink")
     array = ["", "", "", "", "", "", "", "", ""];
     disenabled();
 
@@ -103,7 +125,11 @@ $(document).ready(function() {
 $(".choice").on('click', function(){
   let colorChoice = $(this).attr('id')
   choiceOfChange1 = color[colorChoice]
+  choiceOfBackground = buttonColor[colorChoice]
+  $("#turn").css("background-color",choiceOfBackground)
 })
+
+
 
 
 
