@@ -10,27 +10,44 @@
 	/* font-family: 'Amatic SC', ; */
 	/* font-family: 'Concert One', ; */
 }
-#background {
+/* #background {
 	position: absolute;
 	left: 0;
 	top: 0;
 	width: 100vw;
 	z-index: -2;
-}
+} */
 
 body {
 	background-color: #F4B9B8;
+	background-image: url(../imges/unsplash.jpg);
+	background-size: cover;
 }
 
+
+
+
 .container {
-	position: relative;
+	margin: 40px;
+	margin-top:100px;
+}
+
+
+.game {
+	border:3px yellow dotted;
+	padding-bottom: 30px;
+	border-radius: 20px;
+}
+
+.bottom-message {
+	margin-bottom: 10px;
 }
 
 #cloud {
 	position: absolute;
 	top: calc(50% - 107px);
 	left: calc(50% - 210px);
-	width:1%;
+	width:52%
 }
 
 .game-box {
@@ -40,6 +57,8 @@ body {
   flex-wrap: wrap;
   /* border: solid 2px #333; */
 	margin: 0 auto;
+	background-color: #aec6cf;
+	border-radius: 10px;
 }
 
 .box {
@@ -52,9 +71,10 @@ body {
 	text-align: center;
 }
 
-.message h1 {
-	font-size: 64px;
-	color:#ffb347;
+.message h2 {
+	font-size: 50px;
+	color:#779ecb;
+
 }
 
 .bottom-message {
@@ -70,13 +90,21 @@ body {
 
 #turn {
 	margin: 30px;
-	background-color: pink;
+	background-color:pink;
 }
 
 #choose {
 	display:block;
 	margin-top:20px;
 }
+
+.select {
+	text-align: center;
+	padding-top:20px;
+
+}
+
+
 
 /* .x {
 	background: url("../imges/macaron-red.png");
