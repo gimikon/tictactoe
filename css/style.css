@@ -13,7 +13,7 @@ body {
 	background-color: #F4B9B8;
 	background-image: url(../imges/unsplash.jpg);
 	background-size: cover;
-	
+
 }
 
 
@@ -124,4 +124,9 @@ body {
 
 #pink{
 	background-color: pink;
+}
+
+aside {
+	padding-top: 30px;
+	font-size:18px;
 }
