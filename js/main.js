@@ -70,6 +70,7 @@ $(document).ready(function() {
         }
       }
     }
+    
     if (!array.includes("")) {
       $("#turn").text("The game is draw");
       $("#turn").css("background-color", "#aec6cf")

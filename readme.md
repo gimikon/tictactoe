@@ -23,5 +23,5 @@ HTML,CSS,Javascript, jQuery
 - random color generation.
 
 ### Unsolved problems
-- when clicking the board to play the top main board color changes too fast.
+- when clicking the square board to play, the top main board color changes too fast.
 -  you can change your macaron during its play and it needs to be dienabled.
