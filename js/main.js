@@ -98,7 +98,7 @@ $(document).ready(function() {
   // /if the button color not is pressed the game does not run /
   $("#turn").click(function() {
     if (!colorButtonSet) {
-      $("#error").text("♡Please select your macaron before you play♡");
+      $("#error").text("♡Please select your macaron♡");
       return;
     }
     ////if the button color is pressed, the game starts from here ////////////
