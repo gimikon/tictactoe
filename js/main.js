@@ -21,11 +21,11 @@ let color = {
 };
 
 let buttonColor = {
-  red: "#ff6961",
+  red: "#ff9994",
   green: "#77dd77",
   yellow: "#fdfd96",
   purple: "#b19cd9",
-  pink: "pink"
+  pink: "#ffb9ca"
 };
 
 $(document).ready(function() {
@@ -63,7 +63,7 @@ $(document).ready(function() {
             }
             setTimeout(function(){
               $(".box")
-              // .html('<img src ="imges/cloud1.png">')
+              .html('<img src ="imges/cloud1.png">')
             },1500);
             return
           }
@@ -75,7 +75,7 @@ $(document).ready(function() {
       $("#turn").css("background-color", "#aec6cf")
       setTimeout(function(){
         $(".box")
-        // .html('<img src ="imges/cloud1.png">')
+        .html('<img src ="imges/cloud1.png">')
       },1500);
     }
   };
