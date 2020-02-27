@@ -50,30 +50,33 @@ $(document).ready(function() {
         if (current === array[winningConditions[i][1]]) {
           if (current === array[winningConditions[i][2]]) {
             gameOver = true;
-            $("#turn").text("You are winner !!");
+
+
             if (current.includes("x")){
+              $("#turn").text("You are the winner !!");
               yourScore++
-              console.log(yourScore)
               $("#yourscore").text(yourScore)
-
-
             } else {
+              $("#turn").text("I am  the winner !!");
               myScore++
-              console.log(myScore)
               $("#myscore").text(myScore)
             }
-
-            // $(".box")
-            // .html('<img src ="imges/cloud1.png">')
+            setTimeout(function(){
+              $(".box")
+              // .html('<img src ="imges/cloud1.png">')
+            },1500);
+            return
           }
         }
       }
     }
     if (!array.includes("")) {
       $("#turn").text("The game is draw");
-      $("#turn").css("background-color", "#aec6cf");
-      // $(".box")
-      //   .html('<img src ="imges/cloud1.png">');
+      $("#turn").css("background-color", "#aec6cf")
+      setTimeout(function(){
+        $(".box")
+        // .html('<img src ="imges/cloud1.png">')
+      },1500);
     }
   };
 
@@ -100,7 +103,9 @@ $(document).ready(function() {
     }
     ////if the button color is pressed, the game starts from here ////////////
 
-    $("#turn").text("It is your turn");
+    $("#turn").text("The Game Started");
+    $("#turn").css("background-color","gray");
+
 
     isGameReset = false;
     disenabled();
@@ -117,7 +122,6 @@ $(document).ready(function() {
           } else {
             $(`#${i}`).html(choiceOfChange2);
             $("#turn").css("background-color", choiceOfColorBackground2);
-
             array[i] = "o";
             $("#turn").text("It is my trun");
           }

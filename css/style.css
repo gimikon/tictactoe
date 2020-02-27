@@ -67,11 +67,13 @@ body {
 	text-align: center;
 }
 
-
+.swing-noshow{
+	display:none;
+}
 
 .swing {
 	animation-duration: 2s;
-  animation-delay: 0.5s;
+  animation-delay: 1s;
 }
 
 .bottom-message {
@@ -88,6 +90,7 @@ body {
 #turn {
 	margin: 30px;
 	background-color:pink;
+
 }
 
 #choose {
@@ -129,4 +132,5 @@ body {
 aside {
 	padding-top: 30px;
 	font-size:18px;
+	font-weight: bold;
 }
