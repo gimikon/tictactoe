@@ -4,6 +4,10 @@ let currentPlayer = true;
 let gameOver = false;
 let isGameReset = false;
 let choiceOfChange1;
+let choiceOfChange2;
+let colorChoice;
+let randomColorChoice;
+
 let colorButtonSet = false;
 
 let color = {
@@ -15,10 +19,10 @@ let color = {
 };
 
 let buttonColor = {
-  purple: "#b19cd9",
-  yellow: "#fdfd96",
-  green: "#77dd77",
   red: "#ff6961",
+  green: "#77dd77",
+  yellow: "#fdfd96",
+  purple: "#b19cd9",
   pink: "pink"
 };
 
@@ -35,7 +39,9 @@ $(document).ready(function() {
   ];
 
 
-  ////the initial setting ///////////
+  ////the initial setting end  ///////////
+
+
 
 ///////check if the winning conditions are met or the game is draw//////////
   const checkWinner = function() {
@@ -45,13 +51,20 @@ $(document).ready(function() {
         if (current === array[winningConditions[i][1]]) {
           if (current === array[winningConditions[i][2]]) {
             gameOver = true;
-
             $("#turn").text("You are winner !!");
-            $(".box")
-              .delay(800)
-              .html('<img src ="imges/cloud1.png">');
-            $(".box").addClass("swing");
-            console.log("I win");
+            setTimeout(function() {
+              $(".box")
+                  .fadeOut(400, function() {
+                      $(".box").html('<img src ="imges/cloud1.png">')
+                        .addClass("swing")
+                        .fadeIn()
+                        .delay(2000)
+                        .fadeOut(undefined, function() {
+                          $(".box").removeClass("swing");
+                        })
+                  })
+              console.log("I win");
+            }, 2000)
           }
         }
       }
@@ -66,7 +79,9 @@ $(document).ready(function() {
     }
   };
 
-  ///////check if the winning conditions are met or the game is draw//////////
+  ///////check if the winning conditions are met or the game is draw  end //////////
+
+
 
 
 
@@ -79,17 +94,19 @@ $(document).ready(function() {
     }
   };
 
-  //////lets start button will be disenabled /////////
+  //////lets start button will be disenabled  end /////////
 
 
 
 //////the game starts//////////////////////////
-  /////decide if the button color is pressed///////
+
+      // /if the button color not is pressed the game does not run /
   $("#turn").click(function() {
     if (!colorButtonSet) {
+      $("#error").text("♡Please select your macaron before you play♡")
       return;
     }
-  ////if the button color is pressed, the game starts from here ////////////
+        ////if the button color is pressed, the game starts from here ////////////
 
     $("#turn").text("It is your turn");
 
@@ -104,10 +121,11 @@ $(document).ready(function() {
             $(`#${i}`).html(choiceOfChange1);
             array[i] = "x";
             $("#turn").text("It is your turn");
-            $("#turn").css("background-color", choiceOfBackground);
+            $("#turn").css("background-color", choiceOfBackground1);
           } else {
-            $(`#${i}`).html(color.pink);
-            $("#turn").css("background-color", buttonColor.pink);
+
+            $(`#${i}`).html(choiceOfChange2);
+            $("#turn").css("background-color", choiceOfColorBackground2);
 
             array[i] = "o";
             $("#turn").text("It is my trun");
@@ -119,7 +137,9 @@ $(document).ready(function() {
     });
   });
 
-  //////the game play/////////////////////
+  //////the game starts end /////////////////////
+
+
 
 
 
@@ -138,16 +158,50 @@ $(document).ready(function() {
     disenabled();
   });
 
+    ////the reset button ends ///////////////////
+
+/////the color choice button, if the color is chosen, the game can run because of colorButtonSet ///////////
   $(".choice").on("click", function() {
+    colorChoice = $(this).attr("id");
+    $("#error").text(" ");
     colorButtonSet = true;
-    let colorChoice = $(this).attr("id");
     choiceOfChange1 = color[colorChoice];
-    choiceOfBackground = buttonColor[colorChoice];
-    $("#turn").css("background-color", choiceOfBackground);
+    choiceOfBackground1 = buttonColor[colorChoice];
+    $("#turn").css("background-color", choiceOfBackground1);
+    randomColor();
   });
 
+/////the color choice button ends//////////////////////////////
 
-    ////the reset button ///////////////////
+
+/////the second player will have random macaron color except for the one that is picked ///////
+
+
+const randomColor = function(){
+  randomColorChoice = Object.keys(color)[Math.floor(Math.random() * Object.keys(color).length)]
+
+
+  while( colorChoice === randomColorChoice) {
+    randomColorChoice = Object.keys(color)[Math.floor(Math.random() * Object.keys(color).length)]
+  }
+
+  choiceOfChange2 = color[randomColorChoice];
+  choiceOfColorBackground2 = buttonColor[randomColorChoice];
+
+
+
+};
+
+
+
+// $('#red').trigger('click')
+// $('#turn').trigger('click')
+// $('#0').trigger('click')
+// $('#4').trigger('click')
+// $('#1').trigger('click')
+// $('#5').trigger('click')
+// $('#2').trigger('click')
+
 
 
 });

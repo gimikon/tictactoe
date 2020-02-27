@@ -13,6 +13,7 @@ body {
 	background-color: #F4B9B8;
 	background-image: url(../imges/unsplash.jpg);
 	background-size: cover;
+	
 }
 
 
@@ -53,6 +54,7 @@ body {
 	margin: 0 auto;
 	background-color: #aec6cf;
 	border-radius: 10px;
+	margin-top:30px;
 }
 
 .box {
@@ -118,4 +120,8 @@ body {
 
 .select p {
 	margin-bottom:20px;
+}
+
+#pink{
+	background-color: pink;
 }
