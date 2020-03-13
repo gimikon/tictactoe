@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Grid tictactoe</title>
+		<style>
+			body {
+				/* This is just to center the board */
+				padding: 0;
+				margin: 0;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-around;
+				align-items: center;
+				min-height: 100vh;
+			}
+			.board {
+				/* This is the actual magic that does the whole grid */
+				display: grid;
+				grid-template-columns: repeat(3, 80px);
+				grid-template-rows: repeat(3, 80px);
+				gap: 5px;
+			}
+			.box {
+				background-color: aliceblue;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="board">
+			<div class="box" id="0"></div>
+			<div class="box" id="1"></div>
+			<div class="box" id="2"></div>
+			<div class="box" id="3"></div>
+			<div class="box" id="4"></div>
+			<div class="box" id="5"></div>
+			<div class="box" id="6"></div>
+			<div class="box" id="7"></div>
+			<div class="box" id="8"></div>
+		</div>
+	</body>
+</html>
